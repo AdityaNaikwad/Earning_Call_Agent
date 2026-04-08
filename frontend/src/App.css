@@ -1,0 +1,173 @@
+/* App.css */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+}
+
+.app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+/* Header */
+.header { text-align: center; margin-bottom: 32px; }
+.header h1 { font-size: 28px; font-weight: 700; color: #1a1a2e; }
+.header p  { color: #6b7280; margin-top: 6px; font-size: 15px; }
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+}
+.card h2 { font-size: 16px; font-weight: 600; margin-bottom: 14px; color: #111827; }
+.card p  { font-size: 14px; line-height: 1.7; color: #374151; }
+.center  { text-align: center; }
+
+/* Input row */
+.input-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.input-group { flex: 1; min-width: 200px; }
+.input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #374151;
+}
+.input-group input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border .2s;
+}
+.input-group input[type="text"]:focus { border-color: #4f8ef7; }
+.input-group input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Button */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #4f8ef7;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn:hover    { background: #3a7de8; }
+.btn:disabled { background: #93c5fd; cursor: not-allowed; }
+
+/* Error */
+.error {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* Spinner */
+.spinner {
+  width: 40px; height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #4f8ef7;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.muted { font-size: 13px; color: #9ca3af; margin-top: 6px; }
+
+/* Top row */
+.top-row { display: flex; gap: 20px; }
+.top-row .card { flex: 1; }
+.label { font-size: 12px; color: #6b7280; text-transform: uppercase;
+         letter-spacing: .06em; margin-bottom: 10px; }
+
+/* Signal badge */
+.signal {
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 8px 0 10px;
+}
+.signal.buy  { background: #dcfce7; color: #16a34a; }
+.signal.hold { background: #fef9c3; color: #ca8a04; }
+.signal.sell { background: #fee2e2; color: #dc2626; }
+
+/* Sentiment badge */
+.badge {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px 0 10px;
+  text-transform: capitalize;
+}
+.badge.positive { background: #dcfce7; color: #16a34a; }
+.badge.neutral  { background: #f3f4f6; color: #6b7280; }
+.badge.negative { background: #fee2e2; color: #dc2626; }
+
+/* Sentiment scores */
+.scores { display: flex; justify-content: center; gap: 16px; margin-top: 8px; }
+.scores span { font-size: 13px; font-weight: 500; }
+.pos { color: #16a34a; }
+.neu { color: #6b7280; }
+.neg { color: #dc2626; }
+
+/* Lists */
+ul { padding-left: 18px; }
+ul li { font-size: 14px; line-height: 1.8; color: #374151; }
+ul.risks li { color: #dc2626; }
+
+/* Summary sections */
+.summary-section {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+.summary-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.summary-section h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4f8ef7;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.summary-section.risk h3 { color: #dc2626; }
+.summary-section p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #374151;
+}
