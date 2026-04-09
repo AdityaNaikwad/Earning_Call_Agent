@@ -23,7 +23,7 @@ hf_client = InferenceClient(
 # ── Groq LLM ──
 llm = ChatGroq(
     api_key=os.getenv("GROQ_API_KEY"),
-    model_name="llama-3.3-70b-versatile",
+    model_name="meta-llama/llama-4-scout-17b-16e-instruct",
     temperature=0.3,
     request_timeout=30
 )
