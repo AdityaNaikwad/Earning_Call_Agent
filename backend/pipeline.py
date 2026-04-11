@@ -293,6 +293,8 @@ from dotenv import load_dotenv
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_groq import ChatGroq
 from langchain.schema import HumanMessage, SystemMessage
+import nest_asyncio
+nest_asyncio.apply()  
 
 load_dotenv()
 
@@ -445,7 +447,6 @@ def analyze_sentiment(chunks: list[str]) -> dict:
     if len(relevant_chunks) < 5:
         relevant_chunks = chunks
 
-    # Cap at 15 chunks max
     relevant_chunks = relevant_chunks[:15]
     logger.info(f"Analyzing {len(relevant_chunks)}/{len(chunks)} relevant chunks")
 
