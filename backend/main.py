@@ -56,32 +56,26 @@ async def analyze(
     company: str = Form(...),
     file: UploadFile = File(...)
 ):
-    logger.info(f"Received request for company: {company}")
-
     try:
-        # Validate file type
         if not file.filename.endswith(".pdf"):
             return JSONResponse(
                 status_code=400,
                 content={"error": "Only PDF files are accepted."}
             )
 
-        # Validate company name
         if not company.strip():
             return JSONResponse(
                 status_code=400,
                 content={"error": "Company name cannot be empty."}
             )
 
-        # Read PDF
         pdf_bytes = await file.read()
         logger.info(f"PDF received: {file.filename} ({len(pdf_bytes)} bytes)")
 
-        # Extract transcript
         transcript = extract_transcript_from_pdf(pdf_bytes)
 
-        # Run pipeline
-        result = run_pipeline(company, transcript)
+        # await directly — no asyncio.run() needed!
+        result = await run_pipeline(company, transcript)
 
         logger.info(f"Pipeline complete for: {company}")
         return JSONResponse(status_code=200, content=result)
@@ -95,7 +89,6 @@ async def analyze(
             status_code=500,
             content={"error": "Internal server error. Please try again."}
         )
-
 
 if __name__ == "__main__":
     import uvicorn
